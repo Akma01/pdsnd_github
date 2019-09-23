@@ -195,6 +195,20 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
 
+        i = 0
+        prompt = input('\nWould you like to see raw data? Enter yes or no.\n')
+        while True:
+            if prompt.lower() == 'yes':
+                print(df.iloc[i:i+5])
+            else:
+                break
+            prompt_1 = input('\nWould you like to see 5 more rows of the data? Enter yes or no.\n')
+            if prompt_1.lower() != 'yes':
+                break
+            else:
+                i += 5
+                print(df.iloc[i:i+5])
+
 
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
