@@ -164,6 +164,9 @@ def trip_duration_stats(df):
     total_travel_time = df["travel_time"].sum()
     print("Total Travel Time:", total_travel_time)
 
+    average_travel_time = df["travel_time"].mean()
+    print("Average Travel Time:", average_travel_time)
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -179,6 +182,9 @@ def user_stats(df):
         print("Count of User Type:\n", user_type)
         print("\n")
 
+        gender = df["Gender"].value_counts()
+        print("Count of Gender Type: \n", gender)
+        print("\n")
 
         early_year = df["Birth Year"].min()
         print("Earliest Year of Birth:", early_year)
@@ -206,6 +212,20 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
+
+        i = 0
+        prompt = input('\nWould you like to see raw data? Enter yes or no.\n')
+        while True:
+            if prompt.lower() == 'yes':
+                print(df.iloc[i:i+5])
+            else:
+                break
+            prompt_1 = input('\nWould you like to see 5 more rows of the data? Enter yes or no.\n')
+            if prompt_1.lower() != 'yes':
+                break
+            else:
+                i += 5
+                print(df.iloc[i:i+5])
 
 
 
