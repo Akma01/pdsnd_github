@@ -164,6 +164,9 @@ def user_stats(df):
         print("Count of User Type:\n", user_type)
         print("\n")
 
+        gender = df["Gender"].value_counts()
+        print("Count of Gender Type: \n", gender)
+        print("\n")
 
         early_year = df["Birth Year"].min()
         print("Earliest Year of Birth:", early_year)
